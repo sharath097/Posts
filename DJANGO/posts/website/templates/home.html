@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+    {% block content %}
+    <table class="table table-hover table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Published</th>
+            <th scope="col">Created_at</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% if posts %}
+            {%for post in posts %}
+            <tr>
+                <td><a href="{% url 'post' post.id %}">{{ post.title }}</a></td>
+                <td>{{ post.published }}</td>
+                <td>{{ post.created_at }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+    </tbody>
+</table>
+    {% endblock %}
